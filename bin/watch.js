@@ -33,11 +33,7 @@ var options = {};
 program
 
     .version(
-        'gulp-watch-cli version: ' + require('../package.json').version + '\n' +
-        'commander-gulp-images version: ' + require('../package.json').version + '\n' +
-        'commander-gulp-scripts version: ' + require('../package.json').version + '\n' +
-        'commander-gulp-styles version: ' + require('../package.json').version + '\n' +
-        'commander-gulp-templates version: ' + require('../package.json').version
+        'gulp-watch-cli version: ' + require('../package.json').version + '\n'
     )
     .option('-m, --mkdirp <path>', 'create folder', createFolder)
     .option('-r, --rimraf <path>', 'delete folder', deleteFolder)
@@ -67,7 +63,7 @@ function deleteFolder(dir) {
 }
 
 /* ######################## COMMANDER WATCH PUG ######################## */
-/*  node ./bin/watch.js w-templates \"frontend/src/templates/*.pug\" \"frontend/src/templates//*.pug\" --wtp \"docs/\"" */
+/*  node ./bin/watch.js w-templates \"frontend/src/templates/*.pug\" \"frontend/src/templates//*.pug\" --wt \"docs/\"" */
 program
     .command('w-templates <input>')
     .option("--wt [options]")

@@ -18,13 +18,22 @@ $ npm install commander-gulp-watch
 #### Command to Compile
 
 ```bash
-$ commander-gulp-watch images 'entry' --w 'ouput' 
+$ commander-gulp-watch w-templates 'entry' --wt 'ouput' 
+```
+```bash
+$ commander-gulp-watch w-scss 'entry' --wscss 'ouput' 
+```
+```bash
+$ commander-gulp-watch w-stylus 'entry' --wstyl 'ouput' 
 ```
 
 #### Example
 
 ```bash
 "scripts": {
-    "watch": "commander-gulp-watch watch 'test/images/**/*.png' 'test/images/**/*.jpg' --w 'build/images'"
+   "watch": "npm run watch-templates watch-styles",
+    "watch-sass": "commander-gulp-watch w-scss \"frontend/src/static/styles/*.scss\" \"frontend/src/static/styles/**/*.scss\" --wscss \"docs/styles/\"",
+    "watch-stylus": "commander-gulp-watch w-stylus \"frontend/src/static/styles/*.styl\" \"frontend/src/static/styles/**/*.styl\" --wstyl \"docs/styles/\"",
+    "watch-templates": "commander-gulp-watch w-templates \"frontend/src/templates/*.pug\" \"frontend/src/templates/**/*.pug\" --wt \"docs/\""
   }
 ```

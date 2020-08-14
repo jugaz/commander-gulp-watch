@@ -1,6 +1,6 @@
 {
   "name": "commander-gulp-watch",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "This project is created to compile watch",
   "main": "gulpfile.js",
   "author": "Jesus Antonio Ugaz Vegas",

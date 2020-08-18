@@ -39,6 +39,14 @@
     "watch-stylus": "node ./bin/watch.js w-stylus \"frontend/src/static/styles/*.styl\" \"frontend/src/static/styles/**/*.styl\" --wstyl \"docs/styles/\"",
     "watch-templates": "node ./bin/watch.js w-templates \"frontend/src/templates/*.pug\"  \"frontend/src/templates/**/*.pug\" --wt \"docs/\""
   },
+  "keywords": [
+    "watch",
+    "watching",
+    "gulp",
+    "gulp-watch",
+    "commander-gulp-watch",
+    "commander"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jugaz/commander-gulp-watch.git"

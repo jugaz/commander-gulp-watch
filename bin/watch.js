@@ -141,6 +141,44 @@ program
                 util.log('Done!');
             });
     })
+/* ######################## COMMANDER WATCH LESS ######################## */
+/*  "node ./bin/watch.js w-stylus \"frontend/src/static/styles/*.less\" \"frontend/src/static/styles//*.less\" --wstyl \"docs/styles/\"" */
+program
+    .command('w-less <input>')
+    .option("--wl [options]")
+    .action((input, options) => {
+        var input = options.input || options.parent.rawArgs;
+        var ouput = options.ouput || options.wl;
+        input = input.filter(function (index, value) {
+            if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "less") {
+                return index;
+            }
+
+        });
+
+        return gulp.src(input)
+            .pipe(debug({
+                title: 'commader-gulp-watch:'
+            }))
+            .pipe(watch(input))
+            .pipe(less())
+            .on('error', function (error) {
+                // tenemos un error 
+                util.log("Error Name:", error.name);
+                util.log("Error Code:", error.code);
+                util.log("Error Filename:", error.filename);
+                util.log("Error Line:", error.line);
+                util.log("Error Column:", error.column);
+                util.log("Error Msg", error.Msg);
+
+            })
+            .pipe(postcss(Plugins))
+            .pipe(gulp.dest(ouput))
+            .pipe(browserSync.stream())
+            .on('end', function () {
+                util.log('Done!');
+            });
+    })
 
 /* ######################## COMMANDER WATCH STYL ######################## */
 /*  "node ./bin/watch.js w-stylus \"frontend/src/static/styles/*.styl\" \"frontend/src/static/styles//*.styl\" --wstyl \"docs/styles/\"" */
@@ -181,8 +219,6 @@ program
             .on('end', function () {
                 util.log('Done!');
             });
-
-
     })
 
 

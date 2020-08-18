@@ -27,6 +27,9 @@ $ commander-gulp-watch w-scss 'entry' --wscss 'ouput'
 ```bash
 $ commander-gulp-watch w-stylus 'entry' --wstyl 'ouput' 
 ```
+```bash
+$ commander-gulp-watch w-less 'entry' --wstyl 'ouput' 
+```
 
 #### Example
 
@@ -35,6 +38,7 @@ $ commander-gulp-watch w-stylus 'entry' --wstyl 'ouput'
    "watch": "npm run watch-templates watch-styles",
     "watch-sass": "commander-gulp-watch w-scss \"frontend/src/static/styles/*.scss\" \"frontend/src/static/styles/**/*.scss\" --wscss \"docs/styles/\"",
     "watch-stylus": "commander-gulp-watch w-stylus \"frontend/src/static/styles/*.styl\" \"frontend/src/static/styles/**/*.styl\" --wstyl \"docs/styles/\"",
-    "watch-templates": "commander-gulp-watch w-templates \"frontend/src/templates/*.pug\" \"frontend/src/templates/**/*.pug\" --wt \"docs/\""
+    "watch-templates": "commander-gulp-watch w-templates \"frontend/src/templates/*.pug\" \"frontend/src/templates/**/*.pug\" --wt \"docs/\"",
+     "watch-less": "commander-gulp-watch w-less \"frontend/src/static/styles/*.less\" \"frontend/src/static/styles/**/*.less\" --wl \"docs/styles/\""
   }
 ```

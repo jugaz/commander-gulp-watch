@@ -5,6 +5,7 @@
 .git
 .hg
 .lock-wscript
+.npmrc
 .svn
 .wafpickle-*
 .wafpickle-N
@@ -15,3 +16,4 @@ dist/
 node_modules
 npm-debug.log
 package-lock.json
+frontend/

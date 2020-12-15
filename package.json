@@ -1,6 +1,6 @@
 {
   "name": "commander-gulp-watch",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Watch dinámicamente",
   "main": "gulpfile.js",
   "author": "Jesus Antonio Ugaz Vegas",
@@ -27,23 +27,12 @@
     "gulp-watch": "^5.0.1"
   },
   "scripts": {
-    "deploy": "npm run templates && npm run styles && npm run images && npm run svg && gulp scripts",
-    "images": "commander-gulp-images images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images\"",
-    "predeploy": "rm -rdf \"docs/\" && mkdir -p \"docs/\"",
-    "preinstall": "node ./bin/pre-cli-watch.js",
-    "styles": "commander-gulp-styles scss \"frontend/src/static/styles/*.scss\" \"frontend/src/static/styles/**/*.scss\" --sc \"docs/styles\"",
-    "svg": "commander-gulp-images svg \"frontend/src/static/images/**/*.svg\" --sv \"docs/images/\"",
-    "templates": "commander-gulp-templates templates \"frontend/src/templates/*.pug\" \"frontend/src/templates/**/*.pug\" --t \"docs/\"",
-    "watch": "npm run watch-templates watch-styles",
-    "watch-sass": "node ./bin/watch.js w-scss \"frontend/src/static/styles/*.scss\" \"frontend/src/static/styles/**/*.scss\" --wscss \"docs/styles/\"",
-    "watch-stylus": "node ./bin/watch.js w-stylus \"frontend/src/static/styles/*.styl\" \"frontend/src/static/styles/**/*.styl\" --wstyl \"docs/styles/\"",
-    "watch-templates": "node ./bin/watch.js w-templates \"frontend/src/templates/*.pug\"  \"frontend/src/templates/**/*.pug\" --wt \"docs/\""
+    "preinstall": "node ./bin/pre-cli-watch.js"
   },
   "keywords": [
     "watch",
     "watching",
     "gulp",
-    "gulp-watch",
     "commander-gulp-watch",
     "commander"
   ],

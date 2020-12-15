@@ -50,7 +50,7 @@ program
 
         });
 
-        return gulp.src(input)
+        return src(input, { allowEmpty: true })
             .pipe(debug({
                 title: 'commader-gulp-watch:'
             }))
@@ -66,7 +66,7 @@ program
                 util.log("Error Msg", error.Msg);;
 
             })
-            .pipe(gulp.dest(ouput))
+            .pipe(dest(ouput))
             .pipe(browserSync.stream())
             .on('finish', function () {
                 util.log('Done!');
@@ -88,7 +88,7 @@ program
                 return index;
             }
         });
-        return gulp.src(input)
+        return src(input, { allowEmpty: true })
             .pipe(debug({
                 title: 'commader-gulp-watch:'
             }))
@@ -105,7 +105,7 @@ program
 
             })
             .pipe(postcss(Plugins))
-            .pipe(gulp.dest(ouput))
+            .pipe(dest(ouput))
             .pipe(browserSync.stream())
             .on('finish', function () {
                 util.log('Done!');
@@ -128,7 +128,7 @@ program
 
         });
 
-        return gulp.src(input)
+        return src(input, { allowEmpty: true })
             .pipe(debug({
                 title: 'commader-gulp-watch:'
             }))
@@ -145,7 +145,7 @@ program
 
             })
             .pipe(postcss(Plugins))
-            .pipe(gulp.dest(ouput))
+            .pipe(dest(ouput))
             .pipe(browserSync.stream())
             .on('end', function () {
                 util.log('Done!');

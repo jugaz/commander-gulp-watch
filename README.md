@@ -27,9 +27,7 @@ $ commander-gulp-watch w-scss 'entry' --wscss 'ouput'
 ```bash
 $ commander-gulp-watch w-stylus 'entry' --wstyl 'ouput' 
 ```
-```bash
-$ commander-gulp-watch w-less 'entry' --wstyl 'ouput' 
-```
+
 
 #### Example
 

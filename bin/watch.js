@@ -11,6 +11,7 @@ var
     pug = require('gulp-pug'),
     sass = require('gulp-sass'),
     stylus = require('gulp-stylus'),
+    path = require('path'),
     util = require('gulp-util'),
     watch = require('gulp-watch'),
     { src, dest, series, parallel } = require("gulp");
@@ -44,7 +45,7 @@ program
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.wt;
         input = input.filter(function (index, value) {
-            if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "pug") {
+            if (path.extname(index)  == ".pug") {
                 return index;
             }
 
@@ -84,7 +85,7 @@ program
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.wscss;
         input = input.filter(function (index, value) {
-            if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "scss") {
+            if (path.extname(index)  == ".scss") {
                 return index;
             }
         });
@@ -122,7 +123,7 @@ program
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.wstyl;
         input = input.filter(function (index, value) {
-            if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "styl") {
+            if (path.extname(index)  == ".styl") {
                 return index;
             }
 

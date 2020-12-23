@@ -9,14 +9,14 @@
 ![node: version (tag](https://img.shields.io/badge/node-v15.4.0-green?style=for-the-badge)
 
 
-## Installation
+### Instalación
 
 ```bash
 $ npm install commander-gulp-watch
 ```
 
 
-#### Command to Compile
+### Comando a ejecutar
 
 ```bash
 $ commander-gulp-watch w-templates 'entry' --wt 'ouput'
@@ -25,7 +25,7 @@ $ commander-gulp-watch w-stylus 'entry' --wstyl 'ouput'
 ```
 
 
-#### Example
+### Configuración por el package.json
 
 ```bash
 "scripts": {

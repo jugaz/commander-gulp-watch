@@ -30,9 +30,9 @@ $ commander-gulp-watch w-stylus 'entry' --wstyl 'ouput'
 ```bash
 "scripts": {
   "watch": "npm run watch-templates watch-sass watch-templates watch-mailing",
-  "watch-sass": "commander-gulp-watch w-scss \"frontend/src/static/styles/*.scss\" \"frontend/src/static/styles/**/*.scss\" --wscss  \"docs/styles/\""
-  "watch-stylus": "commander-gulp-watch w-stylus \"frontend/src/static/styles/*.styl\" \"frontend/src/static/styles/**/*.styl\" --wstyl  \"docs/styles/\""
-  "watch-templates": "commander-gulp-watch w-templates \"frontend/src/templates/*.pug\" \"frontend/src/templates/**/*.pug\" --wt  \"docs/\""
+  "watch-sass": "commander-gulp-watch w-scss \"frontend/src/static/styles/*.scss\" \"frontend/src/static/styles/**/*.scss\" --wscss  \"docs/styles/\"",
+  "watch-stylus": "commander-gulp-watch w-stylus \"frontend/src/static/styles/*.styl\" \"frontend/src/static/styles/**/*.styl\" --wstyl  \"docs/styles/\"",
+  "watch-templates": "commander-gulp-watch w-templates \"frontend/src/templates/*.pug\" \"frontend/src/templates/**/*.pug\" --wt  \"docs/\"",
   "watch-mailing": "commander-gulp-watch w-templates \"frontend/src/mail/*.pug\" \"frontend/src/mail/**/*.pug\" --wt  \"docs/\""
   }
 ```

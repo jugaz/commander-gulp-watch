@@ -1,5 +1,5 @@
 # Commander Gulp Watch Dynamic
-
+<style>.markdown-body pre code {cursor:auto}</style>
 <p>Watch dinámicamente</p>
  
 ![commander: version (tag)](https://img.shields.io/badge/commander-v3.0.2-blue?style=for-the-badge)
@@ -36,3 +36,5 @@ $ commander-gulp-watch w-stylus 'entry' --wstyl 'ouput'
   "watch-mailing": "commander-gulp-watch w-templates \"frontend/src/mail/*.pug\" \"frontend/src/mail/**/*.pug\" --wt  \"docs/\""
   }
 ```
+### Link
+https://jugaz.github.io/commander-gulp-watch/

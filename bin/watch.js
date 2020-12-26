@@ -44,11 +44,17 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.wt;
+        function error(){
+            util.log("ERROR: No es extisión válida")
+            util.log("ERROR: La extisión válida debe ser: '.pug'")
+        }
         input = input.filter(function (index, value) {
-            if (path.extname(index)  == ".pug") {
+            if (path.extname(index) == ".pug") {
                 return index;
             }
-
+            else if (path.extname(index) != ".pug") {
+                return error();
+            }
         });
 
         return src(input, { allowEmpty: true })
@@ -84,9 +90,16 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.wscss;
+        function error(){
+            util.log("ERROR: No es extisión válida")
+            util.log("ERROR: La extisión válida debe ser: '.scss'")
+        }
         input = input.filter(function (index, value) {
-            if (path.extname(index)  == ".scss") {
+            if (path.extname(index) == ".scss") {
                 return index;
+            }
+            else if (path.extname(index) != ".scss") {
+                return error();
             }
         });
         return src(input, { allowEmpty: true })
@@ -122,11 +135,17 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.wstyl;
+        function error(){
+            util.log("ERROR: No es extisión válida")
+            util.log("ERROR: La extisión válida debe ser: '.styl'")
+        }
         input = input.filter(function (index, value) {
-            if (path.extname(index)  == ".styl") {
+            if (path.extname(index) == ".styl") {
                 return index;
             }
-
+            else if (path.extname(index) != ".styl") {
+                return error();
+            }
         });
 
         return src(input, { allowEmpty: true })

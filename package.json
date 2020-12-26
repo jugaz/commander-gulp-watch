@@ -1,6 +1,6 @@
 {
   "name": "commander-gulp-watch",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Watch dinámicamente",
   "main": "gulpfile.js",
   "author": "Jesus Antonio Ugaz Vegas",

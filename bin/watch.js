@@ -44,40 +44,39 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.wt;
-        function error(){
-            util.log("ERROR: No es extisión válida")
-            util.log("ERROR: La extisión válida debe ser: '.pug'")
-        }
+
         input = input.filter(function (index, value) {
             if (path.extname(index) == ".pug") {
                 return index;
             }
-            else if (path.extname(index) != ".pug") {
-                return error();
-            }
         });
+        if(input.length === 0 || input === "undefine") {
+            return util.log("ERROR: No existe el archivo con el siguiente formato: '.pug'")
+        }
+        else {
+            return src(input, { allowEmpty: true })
+                .pipe(debug({
+                    title: 'commader-gulp-watch:'
+                }))
+                .pipe(watch(input))
+                .pipe(pug())
+                .on('error', function (error) {
+                    // tenemos un error 
+                    util.log("Error Name:", error.name);
+                    util.log("Error Code:", error.code);
+                    util.log("Error Filename:", error.filename);
+                    util.log("Error Line:", error.line);
+                    util.log("Error Column:", error.column);
+                    util.log("Error Msg", error.Msg);;
 
-        return src(input, { allowEmpty: true })
-            .pipe(debug({
-                title: 'commader-gulp-watch:'
-            }))
-            .pipe(watch(input))
-            .pipe(pug())
-            .on('error', function (error) {
-                // tenemos un error 
-                util.log("Error Name:", error.name);
-                util.log("Error Code:", error.code);
-                util.log("Error Filename:", error.filename);
-                util.log("Error Line:", error.line);
-                util.log("Error Column:", error.column);
-                util.log("Error Msg", error.Msg);;
-
-            })
-            .pipe(dest(ouput))
-            .pipe(browserSync.stream())
-            .on('finish', function () {
-                util.log('Done!');
-            });
+                })
+                .pipe(dest(ouput))
+                .pipe(browserSync.stream())
+                .on('finish', function () {
+                    util.log('Done!');
+                });
+        }
+        
 
 
 
@@ -90,40 +89,40 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.wscss;
-        function error(){
-            util.log("ERROR: No es extisión válida")
-            util.log("ERROR: La extisión válida debe ser: '.scss'")
-        }
+
         input = input.filter(function (index, value) {
             if (path.extname(index) == ".scss") {
                 return index;
             }
-            else if (path.extname(index) != ".scss") {
-                return error();
-            }
         });
-        return src(input, { allowEmpty: true })
-            .pipe(debug({
-                title: 'commader-gulp-watch:'
-            }))
-            .pipe(watch(input))
-            .pipe(sass())
-            .on('error', function (error) {
-                // tenemos un error 
-                util.log("Error Name:", error.name);
-                util.log("Error Code:", error.code);
-                util.log("Error Filename:", error.filename);
-                util.log("Error Line:", error.line);
-                util.log("Error Column:", error.column);
-                util.log("Error Msg", error.Msg);
+        if(input.length === 0 || input === "undefine") {
+            return util.log("ERROR: No existe el archivo con el siguiente formato: '.scss'")
+        }
+        else {
+            return src(input, { allowEmpty: true })
+                .pipe(debug({
+                    title: 'commader-gulp-watch:'
+                }))
+                .pipe(watch(input))
+                .pipe(sass())
+                .on('error', function (error) {
+                    // tenemos un error 
+                    util.log("Error Name:", error.name);
+                    util.log("Error Code:", error.code);
+                    util.log("Error Filename:", error.filename);
+                    util.log("Error Line:", error.line);
+                    util.log("Error Column:", error.column);
+                    util.log("Error Msg", error.Msg);
 
-            })
-            .pipe(postcss(Plugins))
-            .pipe(dest(ouput))
-            .pipe(browserSync.stream())
-            .on('finish', function () {
-                util.log('Done!');
-            });
+                })
+                .pipe(postcss(Plugins))
+                .pipe(dest(ouput))
+                .pipe(browserSync.stream())
+                .on('finish', function () {
+                    util.log('Done!');
+                });
+        }
+        
     })
 
 
@@ -135,41 +134,40 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.wstyl;
-        function error(){
-            util.log("ERROR: No es extisión válida")
-            util.log("ERROR: La extisión válida debe ser: '.styl'")
-        }
+
         input = input.filter(function (index, value) {
             if (path.extname(index) == ".styl") {
                 return index;
             }
-            else if (path.extname(index) != ".styl") {
-                return error();
-            }
         });
+        if(input.length === 0 || input === "undefine") {
+            return util.log("ERROR: No existe el archivo con el siguiente formato: '.styl'")
+        }
+        else {
+            return src(input, { allowEmpty: true })
+                .pipe(debug({
+                    title: 'commader-gulp-watch:'
+                }))
+                .pipe(watch(input))
+                .pipe(stylus())
+                .on('error', function (error) {
+                    // tenemos un error 
+                    util.log("Error Name:", error.name);
+                    util.log("Error Code:", error.code);
+                    util.log("Error Filename:", error.filename);
+                    util.log("Error Line:", error.line);
+                    util.log("Error Column:", error.column);
+                    util.log("Error Msg", error.Msg);
 
-        return src(input, { allowEmpty: true })
-            .pipe(debug({
-                title: 'commader-gulp-watch:'
-            }))
-            .pipe(watch(input))
-            .pipe(stylus())
-            .on('error', function (error) {
-                // tenemos un error 
-                util.log("Error Name:", error.name);
-                util.log("Error Code:", error.code);
-                util.log("Error Filename:", error.filename);
-                util.log("Error Line:", error.line);
-                util.log("Error Column:", error.column);
-                util.log("Error Msg", error.Msg);
-
-            })
-            .pipe(postcss(Plugins))
-            .pipe(dest(ouput))
-            .pipe(browserSync.stream())
-            .on('end', function () {
-                util.log('Done!');
-            });
+                })
+                .pipe(postcss(Plugins))
+                .pipe(dest(ouput))
+                .pipe(browserSync.stream())
+                .on('end', function () {
+                    util.log('Done!');
+                });
+        }   
+        
     })
 
 
